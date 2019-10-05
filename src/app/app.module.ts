@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SheetModule } from './modules/sheet/sheet.module';
+import { SheetComponent } from './modules/sheet/components/sheet/sheet.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SheetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,156 @@
+$table-cell-border: 1px solid #ddd;
+$gray-darker: rgb(205, 205, 205);
+$gray-dark: rgb(230, 230, 230);
+
+@mixin flex-centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+html, body {
+    padding: 0;
+    height: 100%;
+}
+
+.enclosure {
+    display: grid;
+}
+
+body {
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 90%;
+  color: #333;
+  justify-content: center;
+  margin: 0;
+}
+
+.table-wrapper {
+    max-width: 100vw;
+    height: auto;
+    // overflow: scroll;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+// th.table-column-heading {
+//     position: relative;
+// }
+
+td, th {
+  white-space: nowrap;
+}
+
+.cell-input {
+    position: sticky;
+    // &:first-of-type {
+    //     left: 0;
+    //     // display: block;
+    //     // z-index: 3;
+    // }
+}
+
+.cell-content {
+	border: 1px solid $gray-dark;
+    background: $gray-dark;
+    display: grid;
+    width: auto;
+	padding: 10px;
+	grid-template-columns: 50px auto;
+	div, input {
+		border: 1px solid $gray-darker;
+		background: #fff;
+		display: flex;
+		align-items: center;
+		&:nth-child(1) {
+			justify-content: center;
+			color: #999;
+			font: italic 700 18px "Merriweather", serif;
+			border-right: none;
+		}
+	}
+}
+
+.spacer {
+    background: $gray-dark;
+    // position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        height: 80%;
+        width: 100%;
+        background: linear-gradient(
+            135deg,
+            transparent 30px,
+            #bbb 30px,
+            #bbb 55px,
+            transparent 55px
+        );
+    }
+}
+
+.table-column-heading {
+    padding: 10px 60px;
+}
+
+.table-column-header {
+    cursor: pointer;
+}
+
+span.table-column-resizer {
+    cursor: col-resize;
+    display: block;
+    width: 8px;
+    border: 1px solid transparent;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+
+table, .table-corner, .table-column-heading, .table-row-heading, .table-row-cell {
+    border: $table-cell-border;
+}
+
+.table-row-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.table-row-cell {
+    padding: 0;
+}
+
+.table-row-input {
+    width: auto;
+    height: auto;
+}
+
+th {
+  background-color: #eee;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  
+  &:first-of-type {
+    left: 0;
+    z-index: 3;
+  }
+}
+
+tbody tr td:first-of-type {
+  background-color: #eee;
+  position: sticky;
+  left: -1px;
+  text-align: left;
+}

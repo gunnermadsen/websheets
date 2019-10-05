@@ -1,0 +1,33 @@
+<div class="enclosure">
+  <div class="cell-input">
+    <div class="cell-content">
+      <div>fx</div>
+      <input />
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th class="spacer">
+            <!-- <div class="table-corner__spacer"></div> -->
+          </th>
+          <th class="table-column-heading" *ngFor="let head of header" #heading>
+            <span class="table-column-resizer" (mousedown)="triggerColumnResize($event, heading)"></span>
+            <span class="table-column-header">
+              {{ head }}
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; index as i">
+          <td class="table-row-heading">{{ i + 1 }}</td>
+          <td [id]="body + (i + 1)" class="table-row-cell" *ngFor="let body of header; index as j">
+            <!-- <input class="table-row-input"> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
